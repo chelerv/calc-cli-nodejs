@@ -71,6 +71,18 @@ describe("Calculator", function() {
             expect(calc.processInput("+")).toEqual(2);
         });
 
+        it("test real numbers", () => {
+            expect(calc.processInput("2.5")).toEqual("2.5");
+            expect(calc.processInput("2.5")).toEqual("2.5");
+            expect(calc.processInput("*")).toEqual(6.25);
+            expect(calc.processInput("2.5")).toEqual("2.5");
+            expect(calc.processInput("/")).toEqual(2.5);
+            expect(calc.processInput("20")).toEqual("20");
+            expect(calc.processInput("+")).toEqual(22.5);
+            expect(calc.processInput("22")).toEqual("22");
+            expect(calc.processInput("-")).toEqual(0.5);
+        })
+
         it("type q to quit", () => {
             expect(calc.processInput('q')).toEqual('q');
         })
