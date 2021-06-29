@@ -1,0 +1,19 @@
+{
+  "name": "CalculatorCLI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "stack-lifo": "^0.1.6"
+  },
+  "scripts": { "test": "jasmine" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasonsjones/stack-lifo.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  }
+}
