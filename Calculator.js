@@ -32,28 +32,29 @@ function Calculator() {
                         if (!isNaN(line)) {
                             stack.push(line);
                             return line;
-                        } else {
-                            let inlString = line.split(' ');
-                            inlString.filter(v => v !== '').forEach(s => { //filter out the white/empty spaces
-                                if (!isNaN(s)) inlineStack.push(s);
-                                else {
-                                    if (s === '+' || s === '-' || s === '*' || s === '/'){
-                                        if (inlineStack.size() > 1 && isValidExpression){
-                                            let op2 = inlineStack.pop();
-                                            let op1 = inlineStack.pop();
-                                            let val = this.evaluate(op1 + ' ' + s + ' ' + op2);
-                                            inlineStack.push(val);
-                                        } else {
-                                            isValidExpression = false;
-                                            inlineStack.clear();
-                                        }
-                                    }else {
-                                        inlineStack.clear();
+                        }
+
+                        let inlString = line.split(' ');
+                        inlString.filter(v => v !== '').forEach(s => { //filter out the white/empty spaces
+                            if (!isNaN(s)) inlineStack.push(s);
+                            else {
+                                if (s === '+' || s === '-' || s === '*' || s === '/'){
+                                    if (inlineStack.size() > 1 && isValidExpression){
+                                        let op2 = inlineStack.pop();
+                                        let op1 = inlineStack.pop();
+                                        let val = this.evaluate(op1 + ' ' + s + ' ' + op2);
+                                        inlineStack.push(val);
+                                    } else {
                                         isValidExpression = false;
+                                        inlineStack.clear();
                                     }
+                                }else {
+                                    inlineStack.clear();
+                                    isValidExpression = false;
                                 }
-                            })
-                        };
+                            }
+                        })
+
                         if (inlineStack.size() === 1 && isValidExpression) {
                             stack.push(inlineStack.pop());
                             return (stack.peek() === null ? 0 : stack.peek());

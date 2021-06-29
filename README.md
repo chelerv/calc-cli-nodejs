@@ -25,12 +25,26 @@ To build the docker image, run this cmd, from the root folder:
 
 docker build -t calculatorcli:1.0.0 -f docker/Dockerfile .
 
+Alternately, you can fetch the image from the docker hub. The url is https://hub.docker.com/repository/docker/chelerv/calculatorcli.
+
 #### Run
 To run (execute) this docker image:
 
 docker run -ti calculatorcli:1.0.0
 
+If you are running the image fetched from the docker hub, use "latest" in place of "1.0.0 in the above command."
+
 The prompt used is "calc>".
 
-Typing q will quit the program.
+Typing 'c' will clear the main (line) stack.
 
+'s' will print the size of the stack to the console.
+
+'q' will quit the program.
+
+#### Notes
+- Currently, there's no limit on the size of the stacks, but this can easily be enforced
+by putting an upper limit on the number of operands that they can hold by disallowing pushing new 
+  operands.
+- Assumption - each line is validated for correctness of the operands and operators. If any one of the items is missing or is incorrect, the 
+whole line is discarded.
