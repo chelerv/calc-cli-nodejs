@@ -16,7 +16,8 @@ rl.prompt();
 rl.on('line', (line) => {
     let r = calc.processInput(line.trim());
     if (r === 'q' ) rl.close();
-    if (r) log(r);
+    if (r || r === 0) log(r);
+    if (isNaN(r)) log("NaN");
 
     rl.prompt();
 }).on('close', () => {

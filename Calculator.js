@@ -23,7 +23,7 @@ function Calculator() {
                         let op2 = stack.pop();
                         let op1 = stack.pop();
                         let val = this.evaluate(op1 + ' ' + line + ' ' + op2);
-                        stack.push(val)
+                        stack.push(val);
                         return val;
                      }
                      return '';
@@ -56,7 +56,7 @@ function Calculator() {
                         };
                         if (inlineStack.size() === 1 && isValidExpression) {
                             stack.push(inlineStack.pop());
-                            return stack.peek();
+                            return (stack.peek() === null ? 0 : stack.peek());
                         } else {
                             return "Invalid expression!";
                         }
